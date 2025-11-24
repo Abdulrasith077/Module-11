@@ -35,13 +35,12 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-```
+~~~
 class Node:
     def __init__(self, data):
         self.item = data
-        self.nref = None  # next reference
-        self.pref = None  # previous reference
-
+        self.nref = None
+        self.pref = None
 
 class DoublyLinkedList:
     def __init__(self):
@@ -52,44 +51,43 @@ class DoublyLinkedList:
             new_node = Node(data)
             self.start_node = new_node
         else:
-            print("List is not empty.")
-
-    
+            print("list is not empty")
+        
     def insert_at_end(self, data):
         if self.start_node is None:
-            self.insert_in_emptylist(data)
+            new_node = Node(data)
+            self.start_node = new_node
             return
-        new_node = Node(data)
         n = self.start_node
-        # Traverse to the last node
         while n.nref is not None:
             n = n.nref
+        new_node = Node(data)
         n.nref = new_node
         new_node.pref = n
-
+        
     def traverse_list(self):
         if self.start_node is None:
-            print("The list is empty.")
+            print("List has no element")
             return
-        print("Doubly Linked List elements:")
-        n = self.start_node
-        while n is not None:
-            print(n.item, end=' ')
-            n = n.nref
-        print()
+        else:
+            n = self.start_node
+            while n is not None:
+                print(n.item , " ")
+                n = n.nref
+                
+new_linked_list = DoublyLinkedList()
+new_linked_list.insert_at_end(10)
+new_linked_list.insert_at_end(20)
+new_linked_list.insert_at_end(30)
+new_linked_list.insert_at_end(40)
 
-dll = DoublyLinkedList()
-dll.insert_at_end(10)
-dll.insert_at_end(20)
-dll.insert_at_end(30)
-dll.insert_at_end(40)
-dll.traverse_list()
-```
+new_linked_list.traverse_list()
+~~~
+
 ## Sample Output
-```
-Doubly Linked List elements:
-10 20 30 40 
-```
+<img width="343" height="229" alt="image" src="https://github.com/user-attachments/assets/d48adcbc-4ae2-4f79-b193-f67b8446ac96" />
+
+
 ## Result
-Hence Inserted Elements at the End of a Doubly Linked List
+Thus the desired output is verified.
 
