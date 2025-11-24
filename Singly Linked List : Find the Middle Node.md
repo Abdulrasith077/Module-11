@@ -36,58 +36,47 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-```
+~~~
 class Node:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, value):
+        self.data = value
         self.next = None
-
+      
 class LinkedList:
+  
     def __init__(self):
         self.head = None
+  
+    def push(self, new_data):
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+          
+    def printMiddle(self):
+        temp = self.head 
+        count = 0
+          
+        while self.head:
+            if (count & 1): 
+                temp = temp.next
+            self.head = self.head.next
+            count += 1 
+          
+        print(temp.data)     
+          
+llist = LinkedList() 
+for i in range(5):
+    value = input()
+    llist.push(value)
 
-    def append(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
-
-    def get_middle_recursive(self, slow, fast):
-        # Base cases: when fast is None (end) or fast.next is None (end - odd or even length)
-        if fast is None:
-            return slow
-        if fast.next is None:
-            return slow.next  # for even length, return second middle node
-
-        # Recursive call: move slow by 1, fast by 2
-        return self.get_middle_recursive(slow.next, fast.next.next)
-
-    def find_middle(self):
-        if not self.head:
-            return None
-        return self.get_middle_recursive(self.head, self.head).data
-
-n = int(input("Enter number of elements: "))
-ll = LinkedList()
-print("Enter the elements separated by spaces:")
-elements = list(map(int, input().split()))
-for el in elements:
-    ll.append(el)
-
-middle = ll.find_middle()
-print("Middle element:", middle)
-```
+llist.printMiddle()
+~~~
 
 ## Sample Input & Output
-```
-Enter number of elements: 6
-Enter the elements separated by spaces:
-10 20 30 40 50 60
-Middle element: 40
-```
+<img width="412" height="254" alt="image" src="https://github.com/user-attachments/assets/d07cea19-63ec-4f70-b8e8-5565f7ecdddc" />
+
+
 ## Result
-Hence Found the Middle Node of a Singly Linked List Using Recursion
+Thuds the desired output is verified.
+
+
