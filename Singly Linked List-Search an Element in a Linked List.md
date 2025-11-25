@@ -26,42 +26,48 @@ To write a Python program to search for a given element in a singly linked list 
 ---
 
 ## 💻 Program
-```
+~~~
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
-
+ 
 class LinkedList:
     def __init__(self):
         self.head = None
-
-    def push(self, data):
-        new_node = Node(data)
+ 
+    def push(self, new_data):
+        new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
-
-    def search(self, key):
+ 
+    def search(self, x):
         current = self.head
-        while current:
-            if current.data == key:
+        while current != None:
+            if current.data == x:
                 return True
+             
             current = current.next
         return False
+ 
+llist = LinkedList()
+ 
+llist.push(10);
+llist.push(30);
+llist.push(11);
+llist.push(21);
+llist.push(14);
 
-ll = LinkedList()
-for value in [10, 30, 11, 21, 14]:
-    ll.push(value)
-key = int(input("Enter element to search: "))
-if ll.search(key):
+data = int(input())
+if llist.search(data):
     print("Yes")
 else:
     print("No")
-```
+~~~
 ## Sample Output
-```
-Enter element to search: 21
-Yes
-```
+<img width="366" height="211" alt="image" src="https://github.com/user-attachments/assets/a4a9e1c7-c534-4803-8293-8ad7fc9f48c9" />
+
+
 ## Result
-Hence Searched an Element in a Linked List.
+Thus the output is verified
+
